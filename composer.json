@@ -1,0 +1,14 @@
+{
+    "name": "leconfe/googlescholarmetadata",
+    "autoload": {
+        "psr-4": {
+            "GoogleScholarMetadata\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Leconfe"
+        }
+    ],
+    "require": {}
+}
