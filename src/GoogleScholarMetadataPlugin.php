@@ -73,6 +73,9 @@ class GoogleScholarMetadataPlugin extends Plugin
                 MetaTag::add('citation_lastpage', $end);
             }
         }
+        if($paper->getMeta('isbn')){
+            MetaTag::add('citation_isbn', $paper->getMeta('isbn'));
+        }
 
         MetaTag::add('citation_abstract_html_url', route(Paper::getRouteName(), ['submission' => $paper->getKey()]));
 
