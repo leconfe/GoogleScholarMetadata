@@ -2,7 +2,7 @@ name: "Google Scholar Metadata Plugin"
 folder: "GoogleScholarMetadata"
 author: "Leconfe"
 description: "This plugin embeds Google Scholar metadata tags in paper views for indexing purposes."
-version: 1.0.1
+version: 1.0.2
 type: plugin
 settings:
   enabled: true
