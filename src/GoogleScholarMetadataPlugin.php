@@ -63,8 +63,12 @@ class GoogleScholarMetadataPlugin extends Plugin
         }
 
         if ($paper->getMeta('article_pages')) {
-            [$start, $end] = explode('-', $paper->getMeta('article_pages'));
+            $pages = $paper->getMeta('article_pages');
+            $parts = explode('-', $pages);
 
+            // Normalize to two elements
+            $start = $parts[0] ?? null;
+            $end = $parts[1] ?? null;
             if ($start) {
                 MetaTag::add('citation_firstpage', $start);
             }
