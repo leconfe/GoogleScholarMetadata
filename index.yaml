@@ -7,3 +7,5 @@ type: plugin
 sitewide: true
 settings:
   enabled: true
+targets: 
+  - conference
