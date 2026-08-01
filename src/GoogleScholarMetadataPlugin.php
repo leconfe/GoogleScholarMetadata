@@ -42,9 +42,7 @@ class GoogleScholarMetadataPlugin extends Plugin
         });
 
         if ($paper->isPublished() && $paper->published_at) {
-            $dateStr = method_exists($paper->published_at, 'format')
-                ? $paper->published_at->format('Y/m/d')
-                : date('Y/m/d', strtotime((string) $paper->published_at));
+            $dateStr = $paper->published_at->format('Y/m/d');
 
             MetaTag::add('citation_publication_date', $dateStr);
             MetaTag::add('citation_date', $dateStr);
@@ -109,11 +107,7 @@ class GoogleScholarMetadataPlugin extends Plugin
         }
 
         $paper->galleys->each(function ($galley) {
-            $isPdf = method_exists($galley, 'isPdf')
-                ? $galley->isPdf()
-                : (Str::endsWith(strtolower($galley->file_name ?? $galley->label ?? ''), '.pdf') || (($galley->file ?? $galley->submissionFile ?? null)?->media?->mime_type ?? '') === 'application/pdf');
-
-            if ($isPdf && method_exists($galley, 'getUrl')) {
+            if ($galley->isPdf()) {
                 try {
                     MetaTag::add('citation_pdf_url', $galley->getUrl());
                 } catch (\Throwable $th) {
