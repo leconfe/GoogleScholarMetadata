@@ -2,6 +2,6 @@
 
 use GoogleScholarMetadata\GoogleScholarMetadataPlugin;
 
-require 'vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
 return new GoogleScholarMetadataPlugin;
